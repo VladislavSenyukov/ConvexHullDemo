@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,75 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ConvexHull" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1T-f8-ZZx" customClass="DrawingView" customModule="ConvexHull" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4sR-h2-RZ4">
+                                        <rect key="frame" x="188.5" y="702" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4sR-h2-RZ4" secondAttribute="bottom" constant="30" id="Co6-Pu-KCs"/>
+                                    <constraint firstItem="4sR-h2-RZ4" firstAttribute="centerX" secondItem="F1T-f8-ZZx" secondAttribute="centerX" id="hU6-fx-BWy"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="GZO-2Z-3uo" appends="YES" id="BD5-ri-5ce"/>
+                                </connections>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yg3-g8-FJj">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="u3F-oS-St5"/>
+                                    <barButtonItem title="Clear" id="UCS-Km-IIk">
+                                        <connections>
+                                            <action selector="clearDidClick:" destination="BYZ-38-t0r" id="BNj-KH-Qv5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ehR-54-Kd9"/>
+                                    <barButtonItem title="Convex Hull" id="fNE-BE-MN4">
+                                        <connections>
+                                            <action selector="convexHullDidClick:" destination="BYZ-38-t0r" id="1ZJ-0K-MZ7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="96R-sM-RaW"/>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yg3-g8-FJj" firstAttribute="top" secondItem="F1T-f8-ZZx" secondAttribute="bottom" id="Iv6-QJ-zN6"/>
+                            <constraint firstItem="F1T-f8-ZZx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LAb-Gu-EKf"/>
+                            <constraint firstItem="yg3-g8-FJj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TkE-6P-n5M"/>
+                            <constraint firstItem="F1T-f8-ZZx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dlN-F7-pDy"/>
+                            <constraint firstItem="yg3-g8-FJj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="fKF-l1-Snm"/>
+                            <constraint firstItem="yg3-g8-FJj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fjB-h7-bEF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F1T-f8-ZZx" secondAttribute="trailing" id="hwH-9V-U30"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="drawingView" destination="F1T-f8-ZZx" id="Co0-cr-yHt"/>
+                        <outlet property="spinner" destination="4sR-h2-RZ4" id="UBo-Dc-Av5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GZO-2Z-3uo">
+                    <connections>
+                        <action selector="viewDidClick:" destination="BYZ-38-t0r" id="rEe-Z0-8mV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
         </scene>
     </scenes>
 </document>

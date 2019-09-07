@@ -12,6 +12,8 @@
 		D42CF2952323123000F879D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42CF2932323123000F879D6 /* Main.storyboard */; };
 		D42CF2972323123000F879D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42CF2962323123000F879D6 /* Assets.xcassets */; };
 		D42CF29A2323123000F879D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42CF2982323123000F879D6 /* LaunchScreen.storyboard */; };
+		D42CF2A22323125E00F879D6 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CF2A12323125E00F879D6 /* DrawingView.swift */; };
+		D42CF2A4232323FF00F879D6 /* ConvexHullBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CF2A3232323FF00F879D6 /* ConvexHullBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		D42CF2962323123000F879D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D42CF2992323123000F879D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D42CF29B2323123000F879D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D42CF2A12323125E00F879D6 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		D42CF2A3232323FF00F879D6 /* ConvexHullBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvexHullBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				D42CF28F2323123000F879D6 /* AppDelegate.swift */,
 				D42CF2912323123000F879D6 /* ViewController.swift */,
+				D42CF2A12323125E00F879D6 /* DrawingView.swift */,
+				D42CF2A3232323FF00F879D6 /* ConvexHullBuilder.swift */,
 				D42CF2932323123000F879D6 /* Main.storyboard */,
 				D42CF2962323123000F879D6 /* Assets.xcassets */,
 				D42CF2982323123000F879D6 /* LaunchScreen.storyboard */,
@@ -136,6 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D42CF2922323123000F879D6 /* ViewController.swift in Sources */,
+				D42CF2A4232323FF00F879D6 /* ConvexHullBuilder.swift in Sources */,
+				D42CF2A22323125E00F879D6 /* DrawingView.swift in Sources */,
 				D42CF2902323123000F879D6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
