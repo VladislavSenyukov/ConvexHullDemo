@@ -9,25 +9,33 @@
 import UIKit
 
 class DrawingView: UIView {
-    var circleColor = UIColor.white
-    var circleRadius = CGFloat(3)
-    var lineColor = UIColor.red
-    var lineWidth = CGFloat(1.5)
-    private var allCustomLayers = [CALayer]()
+    enum DrawingLevel {
+        case main
+        case other
+    }
+    private var mainLayers = [CALayer]()
+    private var otherLayers = [CALayer]()
+    private var allLayers = [CALayer]()
     
-    func addCircle(point: CGPoint) {
+    func drawCircle(point: CGPoint,
+                    radius: CGFloat = 3,
+                    color: UIColor = .white,
+                    level: DrawingLevel = .main) {
         let shape = CAShapeLayer()
         shape.path = UIBezierPath(arcCenter: point,
-                                  radius: circleRadius,
+                                  radius: radius,
                                   startAngle: 0,
                                   endAngle: CGFloat.pi * 2,
                                   clockwise: true).cgPath
-        shape.fillColor = circleColor.cgColor
+        shape.fillColor = color.cgColor
         layer.addSublayer(shape)
-        allCustomLayers.append(shape)
+        saveLayer(shape, level: level)
     }
     
-    func drawLine(points: [CGPoint]) {
+    func drawLine(points: [CGPoint],
+                  width: CGFloat = 1.5,
+                  color: UIColor = .red,
+                  level: DrawingLevel = .main) {
         let line = UIBezierPath()
         for i in 0..<points.count {
             let point = points[i]
@@ -40,17 +48,55 @@ class DrawingView: UIView {
         line.close()
         let shape = CAShapeLayer()
         shape.path = line.cgPath
-        shape.strokeColor = lineColor.cgColor
+        shape.strokeColor = color.cgColor
         shape.fillColor = UIColor.clear.cgColor
-        shape.lineWidth = lineWidth
+        shape.lineWidth = width
         layer.addSublayer(shape)
-        allCustomLayers.append(shape)
+        saveLayer(shape, level: level)
     }
     
     func clear() {
-        allCustomLayers.forEach {
+        allLayers.forEach {
             $0.removeFromSuperlayer()
         }
-        allCustomLayers = []
+        allLayers = []
+        mainLayers = []
+        otherLayers = []
+    }
+    
+    func clear(level: DrawingLevel) {
+        var layersArray: [CALayer]
+        switch level {
+        case .main:
+            mainLayers = []
+            mainLayers.forEach {
+                $0.removeFromSuperlayer()
+            }
+            layersArray = mainLayers
+        case .other:
+            otherLayers.forEach {
+                $0.removeFromSuperlayer()
+            }
+            otherLayers = []
+            layersArray = otherLayers
+        }
+        for i in 0..<layersArray.count {
+            let layer = layersArray[i]
+            if let idx = allLayers.firstIndex(of: layer) {
+                allLayers.remove(at: idx)
+            }
+        }
+    }
+}
+
+extension DrawingView {
+    private func saveLayer(_ layer: CALayer, level: DrawingLevel) {
+        switch level {
+        case .main:
+            mainLayers.append(layer)
+        case .other:
+            otherLayers.append(layer)
+        }
+        allLayers.append(layer)
     }
 }

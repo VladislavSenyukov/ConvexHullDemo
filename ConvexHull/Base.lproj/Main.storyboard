@@ -39,19 +39,21 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yg3-g8-FJj">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="u3F-oS-St5"/>
-                                    <barButtonItem title="Clear" id="UCS-Km-IIk">
-                                        <connections>
-                                            <action selector="clearDidClick:" destination="BYZ-38-t0r" id="BNj-KH-Qv5"/>
-                                        </connections>
+                                    <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="3Cb-lC-F7j"/>
+                                    <barButtonItem title="Animate" id="Z7a-Hm-FWD"/>
+                                    <barButtonItem style="plain" id="Te0-Ph-J81">
+                                        <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="eFK-k1-UDP">
+                                            <rect key="frame" x="124" y="11.5" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </switch>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ehR-54-Kd9"/>
-                                    <barButtonItem title="Convex Hull" id="fNE-BE-MN4">
+                                    <barButtonItem tag="1" title="Convex Hull" id="fNE-BE-MN4">
                                         <connections>
                                             <action selector="convexHullDidClick:" destination="BYZ-38-t0r" id="1ZJ-0K-MZ7"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="96R-sM-RaW"/>
+                                    <barButtonItem width="50" style="plain" systemItem="fixedSpace" id="zOa-jx-se8"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,6 +72,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="animationSwitch" destination="eFK-k1-UDP" id="1Hf-tt-q3d"/>
+                        <outlet property="convexHullButton" destination="fNE-BE-MN4" id="Wla-C6-ud5"/>
                         <outlet property="drawingView" destination="F1T-f8-ZZx" id="Co0-cr-yHt"/>
                         <outlet property="spinner" destination="4sR-h2-RZ4" id="UBo-Dc-Av5"/>
                     </connections>
